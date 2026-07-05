@@ -45,7 +45,7 @@ def pretty_board(time_step):
   o_locations = np.nonzero(info_state[18:])[0]
   board = np.full(3 * 3, ".")
   board[x_locations] = "X"
-  board[o_locations] = "0"
+  board[o_locations] = "O"
   board = np.reshape(board, (3, 3))
   return board
 
@@ -139,7 +139,7 @@ def main(_):
   # Play from the command line against the trained DQN agent.
   human_player = 1
   while True:
-    logging.info("You are playing as %s", "X" if human_player else "0")
+    logging.info("You are playing as %s", "X" if human_player else "O")
     time_step = env.reset()
     while not time_step.last():
       player_id = time_step.observations["current_player"]

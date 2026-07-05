@@ -66,9 +66,11 @@ class TicTacToeGame(pyspiel.Game):
 
   def __init__(self, params=None):
     super().__init__(_GAME_TYPE, _GAME_INFO, params or dict())
+    print("Creating TicTacToeGame")
 
   def new_initial_state(self):
     """Returns a state corresponding to the start of a game."""
+    print("Creating TicTacToeState")
     return TicTacToeState(self)
 
   def make_py_observer(self, iig_obs_type=None, params=None):
@@ -104,6 +106,7 @@ class TicTacToeState(pyspiel.State):
 
   def _apply_action(self, action):
     """Applies the specified action to the state."""
+    print("Applying action: ", self._action_to_string(self._cur_player, action))
     self.board[_coord(action)] = "x" if self._cur_player == 0 else "o"
     if _line_exists(self.board):
       self._is_terminal = True

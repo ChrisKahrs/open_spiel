@@ -38,6 +38,7 @@ from open_spiel.python.algorithms import mcts
 from open_spiel.python.bots import gtp
 from open_spiel.python.bots import human
 from open_spiel.python.bots import uniform_random
+from open_spiel.python import games  # pylint: disable=unused-import
 import pyspiel
 
 _KNOWN_PLAYERS = [
